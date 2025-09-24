@@ -259,19 +259,22 @@ class NFEExtractor:
         
     def _format_cnpj(self, cnpj: str) -> str:
         """Formata CNPJ"""
-        if len(cnpj) == 14:
+        cnpj_str = str(cnpj)
+        if len(cnpj_str) == 14:
             return f"{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}"
         return cnpj
         
     def _format_cpf(self, cpf: str) -> str:
         """Formata CPF"""
-        if len(cpf) == 11:
+        cpf_str = str(cpf)
+        if len(cpf_str) == 11:
             return f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
         return cpf
         
     def _format_cep(self, cep: str) -> str:
         """Formata CEP"""
-        if len(cep) == 8:
+        cep_str = str(cep)
+        if len(cep_str) == 8:
             return f"{cep[:5]}-{cep[5:]}"
         return cep
         

@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xml-to-json-converter"
+version = "1.0.0"
+description = "Conversor profissional de XML para JSON com suporte específico para NFe brasileira"
+readme = "README.md"
+authors = [
+  { name = "Ítalo Felipe Lira de Morais", email = "dev@xmltojson.com" },
+]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Markup :: XML",
+    "Topic :: Office/Business :: Financial",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+keywords = ["xml", "json", "converter", "nfe", "nota fiscal eletronica", "xml parser"]
+requires-python = ">=3.8"
+dependencies = [
+    "chardet>=5.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=0.991",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+]
+performance = [
+    "ujson>=5.0.0",
+    "lxml>=4.9.0",
+]
+validation = [
+    "xmlschema>=2.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/italofelipe01/xml_json_converter"
+"Bug Tracker" = "https://github.com/italofelipe01/xml_json_converter/issues"
+
+[project.scripts]
+xml2json = "src.cli.interface:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "config*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

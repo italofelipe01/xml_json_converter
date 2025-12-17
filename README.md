@@ -4,51 +4,73 @@
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
 ![Python](https://img.shields.io/badge/python-3.8%2B-yellow.svg?style=flat-square)
 ![Status](https://img.shields.io/badge/status-stable-success.svg?style=flat-square)
+![CI](https://github.com/italofelipe01/xml_json_converter/actions/workflows/ci.yml/badge.svg)
 
-> Uma solução profissional de alto desempenho para conversão de arquivos XML em JSON, com suporte nativo e otimizado para Nota Fiscal Eletrônica (NFe) brasileira.
+> A professional, high-performance solution for converting XML files to JSON, with native and optimized support for Brazilian Electronic Invoices (NFe).
 
-## 🎯 Visão Geral do Produto
+## 🎯 Product Overview
 
-O **XML to JSON Converter** é um software desenvolvido para resolver problemas de interoperabilidade entre sistemas legados (baseados em XML) e arquiteturas modernas (baseadas em JSON). O produto se destaca pela capacidade de parsing inteligente de documentos fiscais brasileiros, extraindo metadados relevantes automaticamente.
+**XML to JSON Converter** is software designed to solve interoperability problems between legacy systems (XML-based) and modern architectures (JSON-based). The product stands out for its intelligent parsing capability for Brazilian fiscal documents, automatically extracting relevant metadata.
 
-### ✨ Principais Funcionalidades
+### ✨ Key Features
 
-* **Conversão Bidirecional Inteligente**: Transforma estruturas XML complexas em objetos JSON limpos e legíveis.
-* **Módulo Fiscal (NFe)**: Extrator especializado para Notas Fiscais, identificando e formatando campos como CNPJ, valores monetários e datas.
-* **Processamento em Lote**: Capacidade de processar diretórios inteiros de arquivos simultaneamente.
-* **CLI Robusta**: Interface de linha de comando completa para integração com scripts de automação.
-* **Validação de Schema**: Verifica a integridade dos arquivos antes da conversão.
+*   **Intelligent Bidirectional Conversion**: Transforms complex XML structures into clean, readable JSON objects.
+*   **Fiscal Module (NFe)**: Specialized extractor for Invoices (NFe), identifying and formatting fields such as CNPJ, monetary values, and dates.
+*   **Batch Processing**: Capability to process entire directories of files simultaneously.
+*   **Robust CLI**: Complete command-line interface for integration with automation scripts.
+*   **Schema Validation**: Verifies file integrity before conversion.
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
-* **Linguagem**: Python 3.8+
-* **Core**: `xml.etree.ElementTree` (Built-in) para alta performance sem dependências pesadas.
-* **Engenharia**: Estrutura modular (MVC), Testes Unitários (`unittest`), Type Hinting e aderência à PEP-8.
+*   **Language**: Python 3.8+
+*   **Core**: `xml.etree.ElementTree` (Built-in) for high performance without heavy dependencies.
+*   **Engineering**: Modular structure (MVC), Unit Tests (`unittest`), Type Hinting, and PEP-8 compliance.
 
-## 🚀 Instalação e Uso
+## 🚀 Installation and Usage
 
-### Instalação
+### Installation
+
+Clone the repository and install the dependencies:
 
 ```bash
-git clone [https://github.com/italofelipe01/xml_json_converter.git](https://github.com/italofelipe01/xml_json_converter.git)
+git clone https://github.com/italofelipe01/xml_json_converter.git
 cd xml_json_converter
-pip install -r requirements.txt
-````
-
-### Exemplo de Uso (CLI)
-
-```bash
-# Converter um arquivo único
-python main.py nota_fiscal.xml -o saida.json
-
-# Converter diretório inteiro e extrair dados de NFe
-python main.py -d ./entrada -o ./saida --nfe-info
+pip install .
 ```
 
-## 📄 Licença
+For development installation:
 
-Este software é distribuído sob a licença **MIT**. Consulte o arquivo `LICENSE` para mais detalhes.
+```bash
+pip install -e .[dev]
+```
 
-## 👨‍💻 Autoria
+### Usage Examples (CLI)
 
-Desenvolvido por **Ítalo Felipe Lira de Morais**.
+```bash
+# Convert a single file
+xml2json nota_fiscal.xml -o saida.json
+
+# Convert entire directory and extract NFe data
+xml2json -d ./entrada -o ./saida --nfe-info
+
+# Show help
+xml2json --help
+```
+
+Or using `python main.py`:
+
+```bash
+python main.py nota_fiscal.xml -o saida.json
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to report bugs, suggest features, or submit pull requests.
+
+## 📄 License
+
+This software is distributed under the **MIT** license. See the `LICENSE` file for more details.
+
+## 👨‍💻 Authorship
+
+Developed by **Ítalo Felipe Lira de Morais**.
